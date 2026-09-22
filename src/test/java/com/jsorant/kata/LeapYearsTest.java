@@ -17,4 +17,10 @@ public class LeapYearsTest {
   void shouldNotBeLeapYearWhenItsDivisibleByOneHundredButNotByFourHundred(int year) {
     assertThat(LeapYears.check(year)).isFalse();
   }
+
+  @ParameterizedTest
+  @ValueSource(ints = {2_008, 2_012, 2_016})
+  void shouldBeLeapYearWhenItsDivisibleByFourButNotByOneHundred(int year) {
+    assertThat(LeapYears.check(year)).isTrue();
+  }
 }
